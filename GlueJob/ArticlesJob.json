@@ -1,0 +1,44 @@
+{
+  "name" : "ArticlesJob",
+  "jobMode" : "SCRIPT",
+  "description" : "",
+  "role" : "arn:aws:iam::604476232840:role/GlueRolePysparkS3",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-604476232840-us-east-1/scripts/ArticlesJob.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--S3_INPUT_PATH" : "s3://bucket-articles/landing_zone/",
+    "--enable-glue-datacatalog" : "true",
+    "--job-bookmark-option" : "job-bookmark-disable",
+    "--TempDir" : "s3://aws-glue-assets-604476232840-us-east-1/temporary/",
+    "--VALUE_COLUMN_NAME" : "product_type_name",
+    "--KEY_COLUMN_NAME" : "product_type_no",
+    "--S3_OUTPUT_PATH" : "s3://bucket-articles/transformation_stage/",
+    "--enable-metrics" : "true",
+    "--enable-spark-ui" : "true",
+    "--spark-event-logs-path" : "s3://aws-glue-assets-604476232840-us-east-1/sparkHistoryLogs/",
+    "--enable-job-insights" : "false",
+    "--enable-observability-metrics" : "true",
+    "--enable-continuous-cloudwatch-log" : "true",
+    "--job-language" : "python"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 10,
+  "timeout" : 2880,
+  "maxCapacity" : 10.0,
+  "glueVersion" : "4.0",
+  "numberOfWorkers" : 10,
+  "workerType" : "G.1X",
+  "executionClass" : "STANDARD",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "aws-glue-articles",
+    "branch" : "main",
+    "folder" : "GlueJob"
+  }
+}
