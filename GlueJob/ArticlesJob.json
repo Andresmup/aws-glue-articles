@@ -20,7 +20,6 @@
     "--KEY_COLUMN_NAME" : "product_type_no",
     "--S3_OUTPUT_PATH" : "s3://bucket-articles/transformation_stage/",
     "--enable-metrics" : "true",
-    "--enable-spark-ui" : "true",
     "--spark-event-logs-path" : "s3://aws-glue-assets-604476232840-us-east-1/sparkHistoryLogs/",
     "--enable-job-insights" : "false",
     "--enable-observability-metrics" : "true",

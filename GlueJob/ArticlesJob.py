@@ -5,6 +5,7 @@ from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 from awsglue.job import Job
 
+# Parameters used by script, pulled from job enviroment
 # @params: ['JOB_NAME','S3_INPUT_PATH','S3_OUTPUT_PATH','KEY_COLUMN_NAME','VALUE_COLUMN_NAME']
 args = getResolvedOptions(sys.argv, ['JOB_NAME','S3_INPUT_PATH','S3_OUTPUT_PATH','KEY_COLUMN_NAME','VALUE_COLUMN_NAME'])
 
